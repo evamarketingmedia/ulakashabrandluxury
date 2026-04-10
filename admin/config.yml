@@ -1,0 +1,161 @@
+backend:
+  name: github
+  repo: evamarketingmedia/ulakasha
+  branch: main
+  auth_scope: public_repo
+
+media_folder: "immagini"
+public_folder: "/immagini"
+
+locale: it
+
+collections:
+  - name: "prodotti"
+    label: "Prodotti"
+    label_singular: "Prodotto"
+    description: "Gestisci i capi della collezione Ulakasha"
+    files:
+      - name: "catalogo"
+        label: "Catalogo Prodotti"
+        file: "prodotti.json"
+        description: "Tutti i capi della collezione"
+        fields:
+          - name: "prodotti"
+            label: "Capi"
+            label_singular: "Capo"
+            widget: list
+            summary: "{{fields.nome.it}} — €{{fields.prezzo}}"
+            fields:
+              - name: id
+                label: "ID (senza spazi, es: volto-seta)"
+                widget: string
+                hint: "Identificatore unico del capo. Solo lettere minuscole e trattini."
+
+              - name: nome
+                label: "Nome del capo"
+                widget: object
+                fields:
+                  - { name: it, label: "Italiano", widget: string }
+                  - { name: en, label: "English", widget: string }
+
+              - name: sottotitolo
+                label: "Sottotitolo"
+                widget: object
+                fields:
+                  - { name: it, label: "Italiano", widget: string, hint: "Es: Tunica di Seta · Opera Originale" }
+                  - { name: en, label: "English", widget: string }
+
+              - name: prezzo
+                label: "Prezzo (EUR)"
+                widget: number
+                value_type: int
+                min: 0
+
+              - name: categoria
+                label: "Categoria"
+                widget: select
+                options:
+                  - { label: "Seta", value: "seta" }
+                  - { label: "Maglieria", value: "maglieria" }
+                  - { label: "Foulard", value: "foulard" }
+
+              - name: badge
+                label: "Badge (opzionale)"
+                widget: string
+                required: false
+                hint: "Es: Nuovo, Limitato, Opera d'Arte, Signature. Lascia vuoto se non serve."
+
+              - name: badge_class
+                label: "Stile badge"
+                widget: select
+                required: false
+                options:
+                  - { label: "Nessuno", value: "" }
+                  - { label: "Gold (Opera d'Arte)", value: "b-art" }
+                  - { label: "Navy (Nuovo)", value: "b-new" }
+                  - { label: "Scuro (Limitato)", value: "b-lim" }
+                  - { label: "Blu (Signature)", value: "b-sig" }
+
+              - name: taglie
+                label: "Taglie disponibili"
+                widget: list
+                field:
+                  name: taglia
+                  label: Taglia
+                  widget: string
+                hint: "Es: XS, S, M, L, XL oppure S/M, M/L oppure Taglia Unica"
+
+              - name: colori
+                label: "Colori disponibili"
+                widget: list
+                required: false
+                fields:
+                  - name: nome
+                    label: "Nome colore"
+                    widget: string
+                    hint: "Es: Avorio, Navy, Blu Notte"
+                  - name: hex
+                    label: "Colore HEX"
+                    widget: color
+                    hint: "Scegli il colore dal picker"
+
+              - name: personalizzazione
+                label: "Personalizzazione disponibile"
+                widget: boolean
+                default: false
+
+              - name: personalizzazione_label
+                label: "Istruzioni personalizzazione"
+                widget: object
+                required: false
+                fields:
+                  - { name: it, label: "Italiano", widget: string, required: false, hint: "Es: Dedica da stampare all'interno (max 60 caratteri)" }
+                  - { name: en, label: "English", widget: string, required: false }
+
+              - name: foto
+                label: "Foto del capo"
+                widget: list
+                field:
+                  name: url
+                  label: "URL foto"
+                  widget: image
+                hint: "Carica 2-3 foto per capo. La prima è la foto principale."
+
+              - name: materiale
+                label: "Materiali e lavorazione"
+                widget: object
+                fields:
+                  - { name: it, label: "Italiano", widget: text }
+                  - { name: en, label: "English", widget: text }
+
+              - name: storia
+                label: "Storia del capo"
+                widget: object
+                fields:
+                  - { name: it, label: "Italiano", widget: text }
+                  - { name: en, label: "English", widget: text }
+
+              - name: stripe_link
+                label: "Link pagamento Stripe"
+                widget: string
+                required: false
+                hint: "URL del Payment Link Stripe per questo capo. Es: https://buy.stripe.com/..."
+
+  - name: "impostazioni"
+    label: "Impostazioni Sito"
+    files:
+      - name: "evento"
+        label: "Evento Fuorisalone"
+        file: "evento.json"
+        fields:
+          - { name: titolo, label: "Titolo evento", widget: string, default: "Su Tela Ogni Passo" }
+          - { name: date, label: "Date", widget: string, default: "21–26 Aprile 2026" }
+          - { name: luogo, label: "Luogo", widget: string, default: "Via Festa del Perdono 10, Milano" }
+          - { name: spazio, label: "Nome spazio", widget: string, default: "Concept Store AURA" }
+          - { name: ingresso, label: "Info ingresso", widget: string, default: "Aperto al pubblico · Ingresso libero" }
+          - name: descrizione
+            label: "Descrizione evento"
+            widget: object
+            fields:
+              - { name: it, label: "Italiano", widget: text }
+              - { name: en, label: "English", widget: text }
