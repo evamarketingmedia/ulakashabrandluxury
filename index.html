@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="it" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Ulakasha — Moda di Lusso Milano | Arte Indossabile | Fuorisalone 2026</title>
+<meta name="description" content="Ulakasha è un brand di moda luxury milanese. Capi su ordinazione con opere d'arte originali sul tessuto. Fuorisalone 2026, Via Festa del Perdono 10, Milano.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Ulakasha — Arte che si indossa | Milano">
+<meta property="og:description" content="Moda luxury con opere d'arte originali sul tessuto. Fuorisalone 2026 · Milano · 21–26 aprile.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F5F0E8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=IM+Fell+English:ital@0;1&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<script async src="https://js.stripe.com/v3/buy-button.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{background:#F5F0E8;color:#1A1A1A;font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;line-height:1.6;}
+img{max-width:100%;height:auto;display:block;}
+button{cursor:pointer;font-family:inherit;border:none;}
+a{cursor:pointer;text-decoration:none;}
+ul{list-style:none;}
+:root{
+  --cream:#F5F0E8;--ivory:#FAF7F2;
+  --blue:#4A6FA5;--blue-d:#2C4A7C;--blue-l:#D0DFF0;
+  --gold:#C4973A;--gold-l:#E8C97A;
+  --muted:#6B6459;--navy:#0D1F3C;
+}
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────────── */
+.t-label{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:18px;}
+.t-heading{font-family:'IM Fell English',serif;font-size:clamp(28px,4vw,46px);color:var(--blue-d);line-height:1.15;margin-bottom:24px;}
+.t-body{font-size:17px;line-height:1.88;color:var(--muted);font-weight:300;margin-bottom:14px;}
+.btn-p{display:inline-flex;align-items:center;justify-content:center;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:14px 38px;transition:all .35s;background:var(--blue-d);color:var(--blue-l);border:none;cursor:pointer;}
+.btn-p:hover{background:var(--blue);}
+.btn-o{display:inline-flex;align-items:center;justify-content:center;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;padding:14px 38px;transition:all .35s;background:transparent;color:var(--blue-d);border:1px solid rgba(44,74,124,.45);cursor:pointer;}
+.btn-o:hover{background:var(--blue-d);color:var(--blue-l);}
+.deco-line{width:44px;height:2px;background:var(--gold);margin:22px 0;}
+
+/* ── NAV ─────────────────────────────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:16px 44px;background:rgba(245,240,232,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(74,111,165,.1);transition:padding .35s;}
+.nav.scrolled{padding:10px 44px;}
+.nav-logo{cursor:pointer;flex-shrink:0;}
+.nav-logo img{height:36px;width:auto;transition:height .35s;}
+.nav.scrolled .nav-logo img{height:28px;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .25s;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-links a:hover{color:var(--blue-d);}
+.nav-links a:hover::after{width:100%;}
+.nav-r{display:flex;align-items:center;gap:12px;}
+.lang-sw{display:flex;border:1px solid rgba(74,111,165,.22);overflow:hidden;}
+.lang-btn{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;background:transparent;color:var(--muted);border:none;cursor:pointer;transition:all .22s;}
+.lang-btn.on{background:var(--blue-d);color:var(--blue-l);}
+.lang-sep{width:1px;background:rgba(74,111,165,.2);}
+.cart-btn{display:flex;align-items:center;gap:7px;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-d);cursor:pointer;padding:7px 16px;border:1px solid rgba(74,111,165,.28);transition:all .3s;background:transparent;}
+.cart-btn:hover{background:var(--blue-d);color:var(--blue-l);}
+.cart-n{background:var(--gold);color:#fff;border-radius:50%;width:17px;height:17px;min-width:17px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;}
+.ham{display:none;flex-direction:column;justify-content:space-between;width:22px;height:15px;background:none;border:none;padding:0;cursor:pointer;}
+.ham span{display:block;width:100%;height:1.5px;background:var(--blue-d);transition:all .3s;transform-origin:center;}
+.ham.open span:nth-child(1){transform:translateY(6.75px) rotate(45deg);}
+.ham.open span:nth-child(2){opacity:0;}
+.ham.open span:nth-child(3){transform:translateY(-6.75px) rotate(-45deg);}
+
+/* ── MOBILE MENU ─────────────────────────────────────────────────── */
+.mob-menu{position:fixed;top:0;right:-100%;width:min(300px,82vw);height:100%;background:var(--ivory);z-index:600;padding:72px 32px 40px;display:flex;flex-direction:column;border-left:1px solid rgba(74,111,165,.1);transition:right .38s cubic-bezier(.25,.1,.25,1);overflow-y:auto;}
+.mob-menu.open{right:0;}
+.mob-menu-x{position:absolute;top:16px;right:16px;font-size:22px;color:var(--muted);cursor:pointer;background:none;border:none;}
+.mob-nav{margin-bottom:36px;}
+.mob-nav li{border-bottom:1px solid rgba(74,111,165,.08);}
+.mob-nav a{display:block;padding:18px 0;font-family:'IM Fell English',serif;font-size:22px;font-style:italic;color:var(--blue-d);cursor:pointer;transition:color .25s;}
+.mob-nav a:hover{color:var(--gold);}
+.mob-lang{display:flex;border:1px solid rgba(74,111,165,.22);overflow:hidden;width:fit-content;margin-top:8px;}
+.mob-overlay{position:fixed;inset:0;background:rgba(13,31,60,.25);z-index:599;opacity:0;pointer-events:none;transition:opacity .35s;}
+.mob-overlay.show{opacity:1;pointer-events:all;}
+
+/* ── PAGES ───────────────────────────────────────────────────────── */
+.page{display:none;}
+.page.on{display:block;}
+
+/* ── HERO ────────────────────────────────────────────────────────── */
+.hero{min-height:100vh;display:grid;place-items:center;position:relative;overflow:hidden;background:var(--cream);padding-top:80px;}
+.hero-grad{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 70% at 75% 35%,rgba(74,111,165,.08) 0%,transparent 65%);}
+.hero-c{position:relative;z-index:2;text-align:center;max-width:760px;padding:0 32px;}
+.hero-logo{margin-bottom:24px;opacity:0;animation:fadeUp .9s .3s forwards;}
+.hero-logo img{width:min(420px,72vw);}
+.hero-sup{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--blue);margin-bottom:24px;display:block;opacity:0;animation:fadeUp .9s .6s forwards;}
+.hero-tag{font-family:'IM Fell English',serif;font-size:clamp(16px,2.2vw,22px);font-style:italic;line-height:1.65;color:var(--muted);margin-bottom:40px;opacity:0;animation:fadeUp .9s .9s forwards;}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .9s 1.2s forwards;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+/* ── MARQUEE ─────────────────────────────────────────────────────── */
+.mq{background:var(--navy);padding:13px 0;overflow:hidden;}
+.mq-t{display:flex;white-space:nowrap;animation:mqS 32s linear infinite;}
+.mq-i{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(208,223,240,.42);padding:0 36px;}
+.mq-dot{color:var(--gold);}
+@keyframes mqS{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── SECTIONS ────────────────────────────────────────────────────── */
+.sec{padding:96px 48px;}
+.sec-in{max-width:1120px;margin:0 auto;}
+
+/* ── SHOP ────────────────────────────────────────────────────────── */
+#p-shop{padding-top:88px;}
+.shop-h{background:var(--ivory);padding:52px 48px 30px;text-align:center;border-bottom:1px solid rgba(74,111,165,.09);}
+.shop-h h1{font-family:'IM Fell English',serif;font-size:44px;color:var(--blue-d);margin-bottom:10px;}
+.shop-h p{font-size:16px;color:var(--muted);font-style:italic;}
+.shop-filters{padding:16px 48px;display:flex;gap:9px;flex-wrap:wrap;border-bottom:1px solid rgba(74,111,165,.09);background:var(--cream);position:sticky;top:88px;z-index:100;}
+.f-btn{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:7px 18px;border:1px solid rgba(74,111,165,.2);background:transparent;color:var(--muted);cursor:pointer;transition:all .22s;}
+.f-btn.on,.f-btn:hover{background:var(--blue-d);color:var(--blue-l);border-color:var(--blue-d);}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding:44px 48px;max-width:1300px;margin:0 auto;}
+
+/* ── PRODUCT CARD ─────────────────────────────────────────────────── */
+.pcard{cursor:pointer;}
+.pcard-img{aspect-ratio:3/4;background:var(--ivory);position:relative;overflow:hidden;margin-bottom:14px;}
+.pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.1,.25,1);}
+.pcard:hover .pcard-img img{transform:scale(1.04);}
+.pcard-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,31,60,.35) 0%,transparent 55%);opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:18px;}
+.pcard:hover .pcard-ov{opacity:1;}
+.pcard-ov-btn{width:100%;padding:11px;background:rgba(245,240,232,.92);color:var(--blue-d);font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;border:none;cursor:pointer;}
+.badge{position:absolute;top:12px;left:12px;z-index:2;font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:4px 11px;}
+.b-art{background:var(--gold);color:#fff;}
+.b-new{background:var(--blue-d);color:var(--blue-l);}
+.b-lim{background:var(--navy);color:rgba(208,223,240,.85);}
+.b-sig{background:var(--blue);color:#fff;}
+.pcard-name{font-family:'IM Fell English',serif;font-size:19px;font-style:italic;color:var(--blue-d);margin-bottom:3px;}
+.pcard-mat{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.pcard-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--blue-d);}
+
+/* ── PRODUCT DETAIL ─────────────────────────────────────────────── */
+#p-prod{padding-top:88px;}
+.pd-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 88px);}
+
+/* Gallery */
+.pd-gal{background:var(--ivory);position:relative;overflow:hidden;}
+.gallery-main{width:100%;height:100%;min-height:500px;position:relative;}
+.gallery-main img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.gallery-thumbs{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
+.g-thumb{width:52px;height:52px;object-fit:cover;cursor:pointer;border:2px solid transparent;transition:all .25s;opacity:.65;}
+.g-thumb.on{border-color:var(--gold);opacity:1;}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(245,240,232,.88);border:none;cursor:pointer;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--blue-d);transition:all .25s;z-index:10;}
+.gallery-arrow:hover{background:var(--cream);}
+.gallery-arrow.prev{left:12px;}
+.gallery-arrow.next{right:12px;}
+
+.pd-info{padding:56px 52px;display:flex;flex-direction:column;overflow-y:auto;}
+.pd-back{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);cursor:pointer;margin-bottom:28px;background:none;border:none;text-align:left;transition:color .25s;}
+.pd-back:hover{color:var(--blue);}
+.pd-name{font-family:'IM Fell English',serif;font-size:42px;color:var(--blue-d);line-height:1.1;margin-bottom:7px;}
+.pd-sub{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block;}
+.pd-price{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--blue-d);margin-bottom:24px;}
+.pd-story{font-size:16px;line-height:1.9;color:var(--muted);font-style:italic;margin-bottom:24px;border-left:2px solid var(--gold);padding-left:16px;}
+
+/* Size selector */
+.sz-lbl{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px;display:block;}
+.sz-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.sz-opt{min-width:44px;height:44px;padding:0 10px;border:1px solid rgba(74,111,165,.2);display:inline-flex;align-items:center;justify-content:center;font-family:'Courier Prime',monospace;font-size:10px;cursor:pointer;transition:all .22s;color:var(--muted);background:transparent;}
+.sz-opt:hover,.sz-opt.sel{background:var(--blue-d);color:var(--blue-l);border-color:var(--blue-d);}
+
+/* Color selector */
+.col-lbl{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:11px;display:block;margin-top:4px;}
+.col-row{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;}
+.col-swatch{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .22s;position:relative;}
+.col-swatch.sel{border-color:var(--gold);transform:scale(1.15);}
+.col-swatch::after{content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid rgba(0,0,0,.08);}
+.col-name{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-left:4px;}
+
+/* Personalizzazione */
+.custom-section{margin-bottom:20px;padding:16px;background:rgba(196,151,58,.06);border-left:2px solid var(--gold);}
+.custom-lbl{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block;}
+.custom-input{width:100%;padding:10px 14px;background:var(--cream);border:1px solid rgba(74,111,165,.2);font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--navy);outline:none;transition:border-color .25s;resize:none;}
+.custom-input:focus{border-color:var(--gold);}
+.custom-count{font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);text-align:right;margin-top:4px;}
+
+/* CTA buttons */
+.atc{width:100%;padding:16px;background:var(--blue-d);color:var(--blue-l);font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;border:none;cursor:pointer;margin-bottom:9px;transition:all .35s;}
+.atc:hover{background:var(--blue);}
+
+/* Accordion */
+.acc{margin-top:24px;border-top:1px solid rgba(74,111,165,.1);}
+.acc-i{border-bottom:1px solid rgba(74,111,165,.1);}
+.acc-h{display:flex;justify-content:space-between;align-items:center;padding:14px 0;cursor:pointer;}
+.acc-t{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);}
+.acc-ico{font-size:18px;color:var(--blue);transition:transform .3s;}
+.acc-h.open .acc-ico{transform:rotate(45deg);}
+.acc-b{font-size:15px;line-height:1.8;color:var(--muted);padding:0 0 14px;display:none;}
+.acc-b.open{display:block;}
+
+/* ── CHECKOUT MODAL ─────────────────────────────────────────────── */
+.chk-modal{position:fixed;inset:0;z-index:900;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s;}
+.chk-modal.open{opacity:1;pointer-events:all;}
+.chk-modal.open .chk-box{transform:translateY(0);}
+.chk-bg{position:absolute;inset:0;background:rgba(13,31,60,.45);}
+.chk-box{position:relative;z-index:1;background:var(--ivory);width:100%;max-width:520px;padding:36px 28px 40px;border-top:3px solid var(--gold);transform:translateY(100%);transition:transform .42s cubic-bezier(.25,.1,.25,1);max-height:90vh;overflow-y:auto;}
+.chk-title{font-family:'IM Fell English',serif;font-size:22px;color:var(--blue-d);margin-bottom:6px;}
+.chk-sub{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:block;}
+.chk-summary{background:var(--cream);padding:14px 16px;margin-bottom:20px;font-size:15px;line-height:1.9;color:var(--muted);}
+.chk-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.chk-field label{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.chk-field input{background:var(--cream);border:1px solid rgba(74,111,165,.2);padding:12px 14px;font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--navy);outline:none;transition:border-color .25s;}
+.chk-field input:focus{border-color:var(--gold);}
+.chk-btns{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+.chk-stripe{width:100%;padding:15px;background:#635BFF;color:#fff;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:background .3s;}
+.chk-stripe:hover{background:#5851e6;}
+.chk-wa{width:100%;padding:14px;background:#25D366;color:#fff;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;border:none;cursor:pointer;transition:background .3s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.chk-wa:hover{background:#1ebe5a;}
+.chk-em-link{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:center;background:none;border:none;cursor:pointer;padding:8px;width:100%;transition:color .25s;}
+.chk-em-link:hover{color:var(--blue-d);}
+.chk-close{position:absolute;top:16px;right:16px;font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;}
+.chk-note{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.09em;line-height:1.7;color:var(--muted);margin-top:14px;padding:10px 12px;border-left:2px solid var(--gold);background:rgba(196,151,58,.06);}
+
+/* ── CART ────────────────────────────────────────────────────────── */
+.cart-drawer{position:fixed;top:0;right:-460px;width:min(460px,100%);height:100%;background:var(--ivory);z-index:700;box-shadow:-2px 0 40px rgba(0,0,0,.1);transition:right .42s cubic-bezier(.25,.1,.25,1);display:flex;flex-direction:column;overflow:hidden;}
+.cart-drawer.open{right:0;}
+.cart-hdr{padding:28px 28px 18px;flex-shrink:0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(74,111,165,.09);}
+.cart-hdr h3{font-family:'IM Fell English',serif;font-size:23px;color:var(--blue-d);}
+.cart-x{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:var(--muted);background:none;border:none;}
+.cart-body{padding:20px 28px;flex:1;overflow-y:auto;}
+.c-item{display:grid;grid-template-columns:72px 1fr auto;gap:14px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(74,111,165,.07);}
+.c-img{width:72px;height:92px;background:var(--cream);overflow:hidden;flex-shrink:0;}
+.c-img img{width:100%;height:100%;object-fit:cover;}
+.c-nm{font-family:'IM Fell English',serif;font-size:16px;font-style:italic;color:var(--blue-d);margin-bottom:4px;}
+.c-dt{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.c-pr{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--blue-d);}
+.c-rm{font-family:'Courier Prime',monospace;font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);cursor:pointer;background:none;border:none;display:block;margin-top:7px;padding:0;transition:color .25s;}
+.c-rm:hover{color:var(--blue-d);}
+.cart-ft{padding:20px 28px 28px;flex-shrink:0;border-top:1px solid rgba(74,111,165,.09);}
+.cart-tot{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;}
+.cart-tot span{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.cart-tot strong{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--blue-d);}
+.cart-note{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.09em;line-height:1.7;color:var(--muted);margin-bottom:16px;padding:11px;background:rgba(74,111,165,.05);border-left:2px solid var(--gold);}
+.ov{position:fixed;inset:0;background:rgba(13,31,60,.28);z-index:699;opacity:0;pointer-events:none;transition:opacity .35s;}
+.ov.show{opacity:1;pointer-events:all;}
+
+/* ── NOTIFICATION ────────────────────────────────────────────────── */
+.notif{position:fixed;bottom:28px;right:28px;z-index:800;background:var(--navy);color:var(--blue-l);font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.13em;padding:15px 22px;border-left:3px solid var(--gold);transform:translateY(80px);opacity:0;transition:all .4s;max-width:300px;}
+.notif.show{transform:none;opacity:1;}
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+footer{background:var(--navy);padding:56px 48px 32px;}
+.ft-grid{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:36px;gap:40px;flex-wrap:wrap;}
+.ft-brand-name{font-family:'IM Fell English',serif;font-size:22px;color:var(--gold-l);margin-bottom:6px;}
+.ft-tag{font-family:'IM Fell English',serif;font-size:13px;font-style:italic;color:rgba(208,223,240,.26);}
+.ft-cols{display:flex;gap:44px;flex-wrap:wrap;}
+.ft-col h4{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.ft-col a{display:block;font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.08em;color:rgba(208,223,240,.38);margin-bottom:9px;cursor:pointer;transition:color .25s;}
+.ft-col a:hover{color:var(--gold-l);}
+.ft-bot{border-top:1px solid rgba(74,111,165,.13);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ft-cp{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:rgba(208,223,240,.18);}
+
+/* ── REVEAL ──────────────────────────────────────────────────────── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s,transform .85s;}
+.rv.vis{opacity:1;transform:none;}
+
+/* ── FUORISALONE ─────────────────────────────────────────────────── */
+#p-event{padding-top:88px;}
+.ev-hero{position:relative;overflow:hidden;background:var(--navy);padding:80px 48px 56px;text-align:center;}
+.ev-hero h1{font-family:'IM Fell English',serif;font-size:clamp(32px,5vw,64px);color:var(--gold-l);margin-bottom:12px;font-style:italic;position:relative;z-index:1;}
+.ev-hero p{font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(208,223,240,.42);position:relative;z-index:1;}
+.ev-body{max-width:900px;margin:0 auto;padding:80px 48px;}
+.ev-desc{font-size:17px;line-height:1.9;color:var(--muted);font-style:italic;margin-bottom:28px;}
+.ev-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(74,111,165,.12);border:1px solid rgba(74,111,165,.12);margin:40px 0;}
+.ev-card{background:var(--ivory);padding:30px 26px;}
+.ev-card-lbl{font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;display:block;}
+.ev-card-val{font-family:'IM Fell English',serif;font-size:17px;color:var(--blue-d);line-height:1.5;}
+
+/* ── ABOUT ───────────────────────────────────────────────────────── */
+#p-about{padding-top:88px;}
+.ab-hero{background:var(--navy);padding:80px 48px 56px;text-align:center;}
+.ab-hero h1{font-family:'IM Fell English',serif;font-size:50px;color:var(--gold-l);margin-bottom:11px;}
+.ab-hero p{font-size:17px;color:rgba(208,223,240,.5);font-style:italic;}
+.ab-body{max-width:1100px;margin:0 auto;padding:80px 48px;}
+.founders{display:grid;grid-template-columns:1fr 1fr;gap:72px;}
+.founder-role{font-family:'Courier Prime',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:9px;display:block;}
+.founder-nm{font-family:'IM Fell English',serif;font-size:27px;color:var(--blue-d);margin-bottom:16px;}
+.f-line{width:34px;height:1px;background:var(--gold);margin:14px 0;}
+.f-bio{font-size:16px;line-height:1.88;color:var(--muted);font-weight:300;margin-bottom:10px;}
+.f-acc{font-size:15px;font-style:italic;color:var(--blue);}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────────── */
+@media(max-width:1024px){.shop-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){
+  .pd-wrap,.founders{grid-template-columns:1fr;}
+  .nav{padding:14px 20px;}
+  .nav-links{display:none;}
+  .ham{display:flex;}
+  .sec{padding:64px 20px;}
+  .shop-filters{top:64px;}
+  .ev-cards{grid-template-columns:1fr;}
+  .ev-body,.ab-body{padding:64px 20px;}
+  .ft-grid{flex-direction:column;}
+}
+@media(max-width:600px){
+  .nav{padding:12px 16px;}
+  .shop-grid{grid-template-columns:1fr;padding:24px 16px;}
+  .shop-filters{padding:12px 16px;}
+  .hero-ctas{flex-direction:column;align-items:center;}
+  .btn-p,.btn-o{width:100%;max-width:260px;}
+  .pd-wrap{grid-template-columns:1fr;}
+  .pd-info{padding:24px 16px 36px;}
+  .gallery-main{min-height:320px;}
+  footer{padding:40px 16px 24px;}
+  .ft-cols{flex-direction:column;}
+  .cart-drawer{width:100%;right:-100%;}
+  .chk-modal{align-items:flex-end;}
+  .notif{left:12px;right:12px;bottom:14px;max-width:none;}
+  .ev-body{padding:44px 16px;}
+  .ab-body{padding:44px 16px;}
+  .ab-hero{padding:52px 16px 36px;}
+  .ab-hero h1{font-size:32px;}
+  .founders{gap:40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-menu-x" onclick="closeMob()">&#x2715;</button>
+  <ul class="mob-nav">
+    <li><a onclick="go('home');closeMob()" id="mn-brand">Il Brand</a></li>
+    <li><a onclick="go('shop');closeMob()" id="mn-coll">Collezione</a></li>
+    <li><a onclick="go('event');closeMob()" id="mn-fds">Fuorisalone</a></li>
+    <li><a onclick="go('about');closeMob()" id="mn-who">Chi Siamo</a></li>
+  </ul>
+  <div class="mob-lang lang-sw">
+    <button class="lang-btn" id="mln-en" onclick="setLang('en');closeMob()">EN</button>
+    <div class="lang-sep"></div>
+    <button class="lang-btn on" id="mln-it" onclick="setLang('it');closeMob()">IT</button>
+  </div>
+</div>
+<div class="mob-overlay" id="mobOv" onclick="closeMob()"></div>
+
+<!-- CHECKOUT MODAL -->
+<div class="chk-modal" id="chkModal">
+  <div class="chk-bg" onclick="closeChk()"></div>
+  <div class="chk-box">
+    <button class="chk-close" onclick="closeChk()">&#x2715; chiudi</button>
+    <h3 class="chk-title" id="chk-title">Conferma il tuo ordine</h3>
+    <span class="chk-sub">Su ordinazione · Made in Italy · 4–6 settimane</span>
+    <div class="chk-summary" id="chkSummary"></div>
+    <div class="chk-field">
+      <label>Nome e cognome</label>
+      <input type="text" id="chk-name" autocomplete="name" placeholder="Il tuo nome">
+    </div>
+    <div class="chk-btns">
+      <button class="chk-stripe" onclick="stripeCheckout()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.99 8.385 24 11.714 24c2.641 0 4.843-.624 6.328-1.813 1.664-1.305 2.525-3.236 2.525-5.732 0-4.128-2.524-5.851-6.591-7.305z"/></svg>
+        Paga ora con Stripe
+      </button>
+      <button class="chk-wa" onclick="sendViaWhatsApp()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Ordina via WhatsApp
+      </button>
+      <button class="chk-em-link" onclick="sendViaEmail()">oppure scrivi a contact@ulakasha.com</button>
+    </div>
+    <div class="chk-note">Ogni capo Ulakasha viene realizzato su ordinazione con artigiani italiani. Ti contatteremo entro 24h per confermare i dettagli. Produzione: 4–6 settimane.</div>
+  </div>
+</div>
+
+<!-- CART -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-hdr">
+    <h3 id="cartTitle">La tua Selezione</h3>
+    <button class="cart-x" onclick="closeCart()">Chiudi &#x2715;</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-ft" id="cartFt" style="display:none;">
+    <div class="cart-tot"><span>Subtotale</span><strong id="cartTotal">&#8364;0</strong></div>
+    <div class="cart-note">Su ordinazione · Artigiani italiani · 4–6 settimane</div>
+    <button class="atc" onclick="proceedOrder()">Procedi all'ordine &#8594;</button>
+  </div>
+</div>
+<div class="ov" id="ov" onclick="closeCart()"></div>
+<div class="notif" id="notif"></div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <div class="nav-logo" onclick="go('home')">
+    <img id="navLogoImg" src="" alt="ulakasha" style="height:36px;">
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="go('home')" id="nl-brand">Il Brand</a></li>
+    <li><a onclick="go('shop')" id="nl-coll">Collezione</a></li>
+    <li><a onclick="go('event')" id="nl-fds">Fuorisalone</a></li>
+    <li><a onclick="go('about')" id="nl-who">Chi Siamo</a></li>
+  </ul>
+  <div class="nav-r">
+    <div class="lang-sw">
+      <button class="lang-btn" id="ln-en" onclick="setLang('en')">EN</button>
+      <div class="lang-sep"></div>
+      <button class="lang-btn on" id="ln-it" onclick="setLang('it')">IT</button>
+    </div>
+    <div class="cart-btn" onclick="openCart()">
+      <span id="bagLbl">Borsa</span>
+      <div class="cart-n" id="cartN">0</div>
+    </div>
+    <button class="ham" id="ham" onclick="openMob()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page on" id="p-home">
+<section class="hero">
+  <div class="hero-grad"></div>
+  <div class="hero-c">
+    <div class="hero-logo"><div style="font-family:'IM Fell English',serif;font-size:52px;color:#0D1F3C;letter-spacing:.08em;">ULAKASHA</div></div>
+    <span class="hero-sup" id="h-sup">Milano · 2026 · Luxury Womenswear</span>
+    <p class="hero-tag" id="h-tag">Dove l'arte incontra la coscienza.<br>Dove il tessuto diventa un varco verso l'anima.</p>
+    <div class="hero-ctas">
+      <button class="btn-p" onclick="go('shop')" id="h-cta1">Scopri la Collezione</button>
+      <button class="btn-o" onclick="go('event')" id="h-cta2">Fuorisalone 2026</button>
+    </div>
+  </div>
+</section>
+<div class="mq"><div class="mq-t" id="mqT"></div></div>
+<section class="sec" style="background:var(--ivory);">
+  <div class="sec-in" style="text-align:center;max-width:700px;">
+    <span class="t-label">La Filosofia</span>
+    <h2 class="t-heading" style="font-style:italic;">Il vestirsi come<br><em>atto di coscienza</em></h2>
+    <p class="t-body">Per Ulakasha il vestirsi porta il potere di una vestizione rituale — l'abito diventa un varco simbolico che apre percorsi verso la propria essenza.</p>
+    <p class="t-body">Le immagini e le parole che abitano i tessuti — anche all'interno, a contatto con la pelle — hanno il potere di aprire uno spazio di sospensione nel flusso rapido della vita quotidiana.</p>
+  </div>
+</section>
+<div style="background:var(--navy);padding:64px 48px;text-align:center;">
+  <span class="t-label" style="color:rgba(208,223,240,.4);">Prima Capsule</span>
+  <h2 style="font-family:'IM Fell English',serif;font-size:36px;color:var(--gold-l);margin-bottom:24px;font-style:italic;">Womenswear · Su Ordinazione</h2>
+  <button class="btn-p" onclick="go('shop')" style="margin:0 auto;">Esplora la Collezione</button>
+</div>
+<div class="sec">
+  <div class="sec-in">
+    <span class="t-label" style="text-align:center;display:block;">Anteprima</span>
+    <div class="shop-grid" id="prevGrid" style="padding:0;max-width:none;"></div>
+  </div>
+</div>
+<footer>
+  <div class="ft-grid">
+    <div><div class="ft-brand-name">Ulakasha</div><div class="ft-tag">l'Amore che prende forma</div></div>
+    <div class="ft-cols">
+      <div class="ft-col"><h4>Esplora</h4><a onclick="go('shop')">Collezione</a><a onclick="go('event')">Fuorisalone</a><a onclick="go('about')">Chi Siamo</a></div>
+      <div class="ft-col"><h4>Contatti</h4><a href="mailto:contact@ulakasha.com">contact@ulakasha.com</a><a>Instagram</a><a>Milano, Italia</a></div>
+    </div>
+  </div>
+  <div class="ft-bot"><span class="ft-cp">© 2026 Ulakasha</span><span class="ft-cp">Privacy · Cookie</span></div>
+</footer>
+</div>
+
+<!-- SHOP -->
+<div class="page" id="p-shop">
+<div class="shop-h"><h1 id="sh-ttl">La Collezione</h1><p id="sh-sub">15 capi · Su Ordinazione · Eccellenza Italiana</p></div>
+<div class="shop-filters">
+  <button class="f-btn on" id="fa" onclick="filterShop('all',this)">Tutto</button>
+  <button class="f-btn" id="fs" onclick="filterShop('seta',this)">Seta</button>
+  <button class="f-btn" id="fk" onclick="filterShop('maglieria',this)">Maglieria</button>
+  <button class="f-btn" id="ff" onclick="filterShop('foulard',this)">Foulard</button>
+</div>
+<div class="shop-grid" id="shopGrid"></div>
+<footer>
+  <div class="ft-grid"><div><div class="ft-brand-name">Ulakasha</div></div></div>
+  <div class="ft-bot"><span class="ft-cp">© 2026 Ulakasha</span></div>
+</footer>
+</div>
+
+<!-- PRODUCT -->
+<div class="page" id="p-prod">
+<div class="pd-wrap">
+  <div class="pd-gal" id="pdGal">
+    <div class="gallery-main" id="galleryMain">
+      <img id="galleryImg" src="" alt="">
+      <button class="gallery-arrow prev" onclick="galNav(-1)">&#8592;</button>
+      <button class="gallery-arrow next" onclick="galNav(1)">&#8594;</button>
+    </div>
+    <div class="gallery-thumbs" id="galleryThumbs"></div>
+  </div>
+  <div class="pd-info">
+    <button class="pd-back" onclick="go('shop')">&#8592; Collezione</button>
+    <h1 class="pd-name" id="pd-nm"></h1>
+    <span class="pd-sub" id="pd-sub"></span>
+    <div class="pd-price" id="pd-pr"></div>
+    <p class="pd-story" id="pd-story"></p>
+    <span class="sz-lbl">Seleziona taglia</span>
+    <div class="sz-row" id="szRow"></div>
+    <span class="col-lbl" id="colLbl" style="display:none;">Seleziona colore</span>
+    <div class="col-row" id="colRow"></div>
+    <div class="custom-section" id="customSection" style="display:none;">
+      <span class="custom-lbl" id="customLbl"></span>
+      <textarea class="custom-input" id="customInput" rows="2" maxlength="120"></textarea>
+      <div class="custom-count" id="customCount">0 / 120</div>
+    </div>
+    <button class="atc" id="atcBtn">Aggiungi alla borsa &#8594;</button>
+    <div class="acc">
+      <div class="acc-i"><div class="acc-h" onclick="togAcc(this)"><span class="acc-t" id="ac1">Materiali e Lavorazione</span><span class="acc-ico">+</span></div><div class="acc-b" id="matB"></div></div>
+      <div class="acc-i"><div class="acc-h" onclick="togAcc(this)"><span class="acc-t">Su Ordinazione · Consegna</span><span class="acc-ico">+</span></div><div class="acc-b">Ogni capo Ulakasha è realizzato su ordinazione con artigiani italiani. Produzione: 4–6 settimane. Spedizione mondiale. info: contact@ulakasha.com</div></div>
+    </div>
+  </div>
+</div>
+<footer><div class="ft-grid"><div><div class="ft-brand-name">Ulakasha</div></div></div><div class="ft-bot"><span class="ft-cp">© 2026 Ulakasha</span></div></footer>
+</div>
+
+<!-- EVENT -->
+<div class="page" id="p-event">
+<div class="ev-hero">
+  <h1>Su Tela Ogni Passo</h1>
+  <p>Mostra-Evento · Fuorisalone · Milan Design Week 2026</p>
+</div>
+<div class="ev-body">
+  <p class="ev-desc">Un'esperienza immersiva in cui i capi appaiono quasi come apparizioni, offrendo al pubblico tutta la loro potenza comunicativa.</p>
+  <div class="ev-cards">
+    <div class="ev-card"><span class="ev-card-lbl">Date</span><div class="ev-card-val">21–26 Aprile 2026</div></div>
+    <div class="ev-card"><span class="ev-card-lbl">Luogo</span><div class="ev-card-val">Via Festa del Perdono 10<br><span style="font-size:15px;color:var(--muted);">Milano · Concept Store AURA</span></div></div>
+    <div class="ev-card"><span class="ev-card-lbl">Ingresso</span><div class="ev-card-val">Aperto al pubblico · Libero</div></div>
+  </div>
+  <p class="ev-desc">La mostra presenta la capsule womenswear affiancata dai disegni originali su carta di Francesca Càndito e le storie che hanno ispirato ogni capo.</p>
+  <div style="text-align:center;margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+    <button class="btn-p" onclick="go('shop')">Prenota il tuo capo &#8594;</button>
+    <button class="btn-o" onclick="window.open('https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ulakasha+Fuorisalone&dates=20260421/20260427&location=Via+Festa+del+Perdono+10,+Milano','_blank')">+ Calendario</button>
+  </div>
+</div>
+<footer><div class="ft-grid"><div><div class="ft-brand-name">Ulakasha</div><div class="ft-tag">l'Amore che prende forma</div></div></div><div class="ft-bot"><span class="ft-cp">© 2026 Ulakasha</span></div></footer>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="p-about">
+<div class="ab-hero"><h1>Chi Siamo</h1><p>Un progetto, un brand, una missione</p></div>
+<div class="ab-body">
+  <div class="founders">
+    <div class="rv">
+      <span class="founder-role">Artista · Co-fondatrice</span>
+      <h3 class="founder-nm">Francesca Càndito</h3>
+      <div class="f-line"></div>
+      <p class="f-bio">Le sue opere sono icone moderne capaci di trasmettere sensazioni della Memoria Universale. Per molti anni ha perseguito una ricerca artistica che riconnette l'essere umano alla percezione del divino.</p>
+      <p class="f-acc">Selezionata da Saatchi Art tra i top 40 artisti italiani · 2017</p>
+      <p style="font-family:'Courier Prime',monospace;font-size:9px;color:var(--muted);margin-top:10px;line-height:1.7;">Museo Marino Marini, Firenze · Museo Basilio Cascella, Pescara · Museo Diocesiano, Asti · Museo Valtellinese, Sondrio</p>
+    </div>
+    <div class="rv">
+      <span class="founder-role">Fashion Designer · Co-fondatrice</span>
+      <h3 class="founder-nm">Valeria Villegas Duenas</h3>
+      <div class="f-line"></div>
+      <p class="f-bio">Nata a Città del Messico, si è trasferita a Milano per studiare Fashion Design all'Istituto Marangoni, avviando una carriera internazionale nel settore del lusso.</p>
+      <p class="f-acc">Master in Luxury Management · Sole 24 Ore Business School, Milano</p>
+    </div>
+  </div>
+</div>
+<footer><div class="ft-grid"><div><div class="ft-brand-name">Ulakasha</div><div class="ft-tag">l'Amore che prende forma</div></div></div><div class="ft-bot"><span class="ft-cp">© 2026 Ulakasha · Tutti i diritti riservati</span></div></footer>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════════
+// DATI — caricati da prodotti.json
+// ══════════════════════════════════════════════════════════════════════
+var PRODOTTI = [];
+var lang = "it";
+var cart = [];
+var curProd = null;
+var selSz = null;
+var selCol = null;
+var galIdx = 0;
+
+// Carica i prodotti dal JSON esterno
+fetch('prodotti.json')
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    PRODOTTI = data.prodotti;
+    initSite();
+  })
+  .catch(function(){
+    // Fallback se fetch non funziona (locale senza server)
+    console.warn("Fetch prodotti.json fallito — usa server locale o Netlify");
+    initSite();
+  });
+
+function initSite(){
+  applyLang();
+  buildMarquee();
+  buildGrid("prevGrid", PRODOTTI.slice(0,3));
+  buildGrid("shopGrid", PRODOTTI);
+  initReveal();
+}
+
+// ── HELPERS ──────────────────────────────────────────────────────────
+function el(id){ return document.getElementById(id); }
+function set(id,val){ var e=el(id); if(e) e.textContent=val; }
+function setH(id,val){ var e=el(id); if(e) e.innerHTML=val; }
+
+// ── NAV SCROLL ───────────────────────────────────────────────────────
+window.addEventListener("scroll",function(){ el("mainNav").classList.toggle("scrolled",window.scrollY>60); },{passive:true});
+
+// ── MOBILE MENU ───────────────────────────────────────────────────────
+function openMob(){ el("mobMenu").classList.add("open"); el("ham").classList.add("open"); el("mobOv").classList.add("show"); document.body.style.overflow="hidden"; }
+function closeMob(){ el("mobMenu").classList.remove("open"); el("ham").classList.remove("open"); el("mobOv").classList.remove("show"); document.body.style.overflow=""; }
+
+// ── PAGES ─────────────────────────────────────────────────────────────
+function go(page){
+  document.querySelectorAll(".page").forEach(function(p){ p.classList.remove("on"); });
+  var t=el("p-"+page);
+  if(t){ t.classList.add("on"); window.scrollTo(0,0); setTimeout(initReveal,80); }
+  if(page==="shop") buildGrid("shopGrid", PRODOTTI);
+}
+
+// ── LANGUAGE ─────────────────────────────────────────────────────────
+function setLang(l){
+  lang=l;
+  ["ln-en","mln-en"].forEach(function(id){ var e=el(id); if(e) e.classList.toggle("on",l==="en"); });
+  ["ln-it","mln-it"].forEach(function(id){ var e=el(id); if(e) e.classList.toggle("on",l==="it"); });
+  applyLang();
+}
+function applyLang(){
+  if(lang==="it"){
+    set("nl-brand","Il Brand"); set("nl-coll","Collezione"); set("nl-fds","Fuorisalone"); set("nl-who","Chi Siamo");
+    set("mn-brand","Il Brand"); set("mn-coll","Collezione"); set("mn-fds","Fuorisalone"); set("mn-who","Chi Siamo");
+    set("bagLbl","Borsa"); set("sh-ttl","La Collezione");
+    set("h-sup","Milano · 2026 · Luxury Womenswear");
+    setH("h-tag","Dove l'arte incontra la coscienza.<br>Dove il tessuto diventa un varco verso l'anima.");
+    set("h-cta1","Scopri la Collezione"); set("h-cta2","Fuorisalone 2026");
+    set("fa","Tutto"); set("fs","Seta"); set("fk","Maglieria"); set("ff","Foulard");
+    set("cartTitle","La tua Selezione");
+  } else {
+    set("nl-brand","The Brand"); set("nl-coll","Collection"); set("nl-fds","Fuorisalone"); set("nl-who","Who We Are");
+    set("mn-brand","The Brand"); set("mn-coll","Collection"); set("mn-fds","Fuorisalone"); set("mn-who","Who We Are");
+    set("bagLbl","Bag"); set("sh-ttl","The Collection");
+    set("h-sup","Milan · 2026 · Luxury Womenswear");
+    setH("h-tag","Where art meets consciousness.<br>Where fabric becomes a gateway to the soul.");
+    set("h-cta1","Discover the Collection"); set("h-cta2","Fuorisalone 2026");
+    set("fa","All"); set("fs","Silk"); set("fk","Knitwear"); set("ff","Scarves");
+    set("cartTitle","Your Selection");
+  }
+  if(PRODOTTI.length) { buildGrid("prevGrid", PRODOTTI.slice(0,3)); buildGrid("shopGrid", PRODOTTI); }
+  renderCart();
+}
+
+// ── MARQUEE ───────────────────────────────────────────────────────────
+function buildMarquee(){
+  var items=["Artigianato Italiano","Tessuti Naturali Pregiati","Vestirsi come Atto di Coscienza","Memoria Universale","Made to Order","Luxury Womenswear","Arte Indossabile","Milano 2026"];
+  var d=items.concat(items);
+  var h="";
+  d.forEach(function(t){ h+='<span class="mq-i">'+t+'<span class="mq-dot"> · </span></span>'; });
+  el("mqT").innerHTML=h;
+}
+
+// ── GRIDS ─────────────────────────────────────────────────────────────
+function buildGrid(gridId, prods){
+  var g=el(gridId); if(!g) return;
+  var vl=lang==="it"?"Scopri":"View";
+  var h="";
+  prods.forEach(function(p){
+    var badge=p.badge?'<span class="badge '+p.badge_class+'">'+p.badge+'</span>':"";
+    h+='<div class="pcard" onclick="openProd(\''+p.id+'\')"><div class="pcard-img">';
+    h+='<img src="'+(p.foto[0]||"")+'" alt="'+p.nome[lang]+'" loading="lazy">';
+    h+=badge;
+    h+='<div class="pcard-ov"><button class="pcard-ov-btn">'+vl+'</button></div>';
+    h+='</div>';
+    h+='<div class="pcard-name">'+p.nome[lang]+'</div>';
+    h+='<div class="pcard-mat">'+p.sottotitolo[lang].split("·").slice(1).join("·").trim()+'</div>';
+    h+='<div class="pcard-price">&#8364; '+p.prezzo.toLocaleString("it-IT")+'</div></div>';
+  });
+  g.innerHTML=h;
+}
+
+// ── FILTER ────────────────────────────────────────────────────────────
+function filterShop(cat, btn){
+  document.querySelectorAll(".f-btn").forEach(function(b){ b.classList.remove("on"); });
+  btn.classList.add("on");
+  var filtered=cat==="all"?PRODOTTI:PRODOTTI.filter(function(p){ return p.categoria===cat; });
+  buildGrid("shopGrid", filtered);
+}
+
+// ── PRODUCT DETAIL ────────────────────────────────────────────────────
+function openProd(id){
+  var prod=PRODOTTI.find(function(p){ return p.id===id; });
+  if(!prod) return;
+  curProd=prod; selSz=null; selCol=null; galIdx=0;
+
+  // Gallery
+  el("galleryImg").src = prod.foto[0]||"";
+  el("galleryImg").alt = prod.nome[lang];
+  var thumbs="";
+  prod.foto.forEach(function(f,i){
+    thumbs+='<img class="g-thumb'+(i===0?" on":"")+'" src="'+f+'" onclick="setGal('+i+')" alt="">';
+  });
+  el("galleryThumbs").innerHTML=thumbs;
+  el("galleryThumbs").style.display=prod.foto.length>1?"flex":"none";
+  var arrowStyle=prod.foto.length>1?"flex":"none";
+  document.querySelectorAll(".gallery-arrow").forEach(function(a){ a.style.display=arrowStyle; });
+
+  // Info
+  set("pd-nm", prod.nome[lang]);
+  set("pd-sub", prod.sottotitolo[lang]);
+  el("pd-pr").textContent="€ "+prod.prezzo.toLocaleString("it-IT");
+  set("pd-story", prod.storia[lang]);
+  set("matB", prod.materiale[lang]);
+
+  // Taglie
+  var szH="";
+  prod.taglie.forEach(function(t){ szH+='<div class="sz-opt" onclick="pickSz(this,\''+t+'\')">'+t+'</div>'; });
+  el("szRow").innerHTML=szH;
+
+  // Colori
+  if(prod.colori && prod.colori.length){
+    el("colLbl").style.display="block";
+    var cH="";
+    prod.colori.forEach(function(c,i){
+      cH+='<div class="col-swatch'+(i===0?" sel":"")+'" style="background:'+c.hex+';" title="'+c.nome+'" onclick="pickCol(this,\''+c.nome+'\')"></div>';
+    });
+    cH+='<span class="col-name" id="colNameLabel">'+prod.colori[0].nome+'</span>';
+    el("colRow").innerHTML=cH;
+    selCol=prod.colori[0].nome;
+    el("colRow").style.display="flex";
+  } else {
+    el("colLbl").style.display="none";
+    el("colRow").style.display="none";
+    el("colRow").innerHTML="";
+  }
+
+  // Personalizzazione
+  if(prod.personalizzazione){
+    el("customSection").style.display="block";
+    el("customLbl").textContent=prod.personalizzazione_label[lang];
+    el("customInput").value="";
+    el("customCount").textContent="0 / 120";
+    var maxLen=prod.personalizzazione_label[lang].includes("120")?120:prod.personalizzazione_label[lang].includes("60")?60:40;
+    el("customInput").maxLength=maxLen;
+    el("customCount").textContent="0 / "+maxLen;
+    el("customInput").oninput=function(){ el("customCount").textContent=this.value.length+" / "+maxLen; };
+  } else {
+    el("customSection").style.display="none";
+  }
+
+  go("prod");
+}
+
+// Gallery navigation
+function setGal(idx){
+  galIdx=idx;
+  el("galleryImg").src=curProd.foto[idx]||"";
+  document.querySelectorAll(".g-thumb").forEach(function(t,i){ t.classList.toggle("on",i===idx); });
+}
+function galNav(dir){
+  if(!curProd) return;
+  galIdx=(galIdx+dir+curProd.foto.length)%curProd.foto.length;
+  setGal(galIdx);
+}
+
+function pickSz(btn,sz){
+  document.querySelectorAll(".sz-opt").forEach(function(o){ o.classList.remove("sel"); });
+  btn.classList.add("sel");
+  selSz=sz;
+}
+function pickCol(el_,nome){
+  document.querySelectorAll(".col-swatch").forEach(function(s){ s.classList.remove("sel"); });
+  el_.classList.add("sel");
+  selCol=nome;
+  var lbl=document.getElementById("colNameLabel");
+  if(lbl) lbl.textContent=nome;
+}
+function togAcc(head){
+  var body=head.nextElementSibling;
+  var ico=head.querySelector(".acc-ico");
+  var isOpen=body.classList.contains("open");
+  body.classList.toggle("open",!isOpen);
+  head.classList.toggle("open",!isOpen);
+  ico.textContent=isOpen?"+":"−";
+}
+
+// ── ADD TO CART ───────────────────────────────────────────────────────
+el("atcBtn").addEventListener("click",function(){
+  if(!curProd) return;
+  if(curProd.taglie.length>1 && !selSz){ showNotif(lang==="it"?"Seleziona una taglia":"Please select a size"); return; }
+  var sz=selSz||curProd.taglie[0];
+  var custom=el("customInput")?el("customInput").value.trim():"";
+  var key=curProd.id+"|"+sz+(selCol?"|"+selCol:"")+(custom?"|"+custom:"");
+  var ex=cart.find(function(i){ return i.key===key; });
+  if(ex){ ex.qty++; } else {
+    cart.push({
+      key:key, id:curProd.id, sz:sz,
+      col:selCol||"", custom:custom, qty:1,
+      nome:curProd.nome[lang],
+      foto:curProd.foto[0]||"",
+      prezzo:curProd.prezzo,
+      stripe:curProd.stripe_link
+    });
+  }
+  renderCart();
+  showNotif((lang==="it"?"Aggiunto: ":"Added: ")+curProd.nome[lang]);
+  setTimeout(openCart,420);
+});
+
+// ── CART ──────────────────────────────────────────────────────────────
+function openCart(){ el("cartDrawer").classList.add("open"); el("ov").classList.add("show"); }
+function closeCart(){ el("cartDrawer").classList.remove("open"); el("ov").classList.remove("show"); }
+
+function renderCart(){
+  var cnt=0; cart.forEach(function(i){ cnt+=i.qty; });
+  el("cartN").textContent=cnt;
+  var body=el("cartBody"), ft=el("cartFt");
+  if(!cart.length){
+    body.innerHTML='<p style="font-family:\'Courier Prime\',monospace;font-size:10px;color:var(--muted);text-transform:uppercase;padding:20px 0;">'+(lang==="it"?"La tua borsa è vuota":"Your bag is empty")+'</p>';
+    ft.style.display="none"; return;
+  }
+  ft.style.display="block";
+  var h=""; var total=0;
+  cart.forEach(function(item,i){
+    h+='<div class="c-item"><div class="c-img"><img src="'+item.foto+'" alt="'+item.nome+'"></div>';
+    h+='<div><div class="c-nm">'+item.nome+'</div>';
+    h+='<div class="c-dt">'+item.sz+(item.col?" · "+item.col:"")+'</div>';
+    if(item.custom) h+='<div class="c-dt" style="font-style:italic;">'+item.custom+'</div>';
+    h+='<div class="c-dt">qty: '+item.qty+'</div>';
+    h+='<button class="c-rm" onclick="rmItem('+i+')">'+(lang==="it"?"Rimuovi":"Remove")+'</button></div>';
+    h+='<div class="c-pr">&#8364;'+(item.prezzo*item.qty).toLocaleString("it-IT")+'</div></div>';
+    total+=item.prezzo*item.qty;
+  });
+  body.innerHTML=h;
+  el("cartTotal").textContent="€"+total.toLocaleString("it-IT");
+}
+function rmItem(i){ cart.splice(i,1); renderCart(); }
+
+// ── CHECKOUT ──────────────────────────────────────────────────────────
+function proceedOrder(){
+  if(!cart.length) return;
+  var h="";
+  var total=0;
+  cart.forEach(function(item){
+    h+='<div>'+item.nome+' · '+item.sz+(item.col?" · "+item.col:"")+(item.custom?' · "'+item.custom+'"':"")+'  <strong>€'+( item.prezzo*item.qty).toLocaleString("it-IT")+'</strong></div>';
+    total+=item.prezzo*item.qty;
+  });
+  h+='<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(74,111,165,.15);font-weight:600;color:var(--blue-d);">Totale: €'+total.toLocaleString("it-IT")+'</div>';
+  el("chkSummary").innerHTML=h;
+  el("chk-name").value="";
+  closeCart();
+  el("chkModal").classList.add("open");
+  document.body.style.overflow="hidden";
+  setTimeout(function(){ el("chk-name").focus(); },420);
+}
+function closeChk(){ el("chkModal").classList.remove("open"); document.body.style.overflow=""; }
+
+function buildOrderText(){
+  var name=el("chk-name").value.trim();
+  var txt="Ordine Ulakasha\n\n";
+  if(name) txt+="Nome: "+name+"\n";
+  txt+="\nCapi:\n";
+  var total=0;
+  cart.forEach(function(item){
+    txt+="• "+item.nome+" ("+item.sz+(item.col?", "+item.col:"")+")"+(item.custom?' — "'+item.custom+'"':"")+": €"+item.prezzo.toLocaleString("it-IT")+"\n";
+    total+=item.prezzo*item.qty;
+  });
+  txt+="\nTotale: €"+total.toLocaleString("it-IT");
+  txt+="\n\nFuorisalone · Via Festa del Perdono 10, Milano · 21–26 aprile 2026";
+  return txt;
+}
+function stripeCheckout(){
+  var name=el("chk-name").value.trim();
+  if(!name){ showNotif(lang==="it"?"Inserisci il tuo nome":"Please enter your name"); el("chk-name").focus(); return; }
+  var link=cart.length===1?cart[0].stripe:"https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801";
+  closeChk();
+  window.open(link,"_blank");
+  showNotif(lang==="it"?"Apertura pagamento Stripe...":"Opening Stripe payment...");
+}
+function sendViaWhatsApp(){
+  var name=el("chk-name").value.trim();
+  if(!name){ showNotif(lang==="it"?"Inserisci il tuo nome":"Please enter your name"); el("chk-name").focus(); return; }
+  var txt=buildOrderText();
+  window.open("https://api.whatsapp.com/send?text="+encodeURIComponent(txt),"_blank");
+  closeChk();
+  showNotif(lang==="it"?"Apertura WhatsApp...":"Opening WhatsApp...");
+}
+function sendViaEmail(){
+  var txt=buildOrderText();
+  window.location.href="mailto:contact@ulakasha.com?subject="+encodeURIComponent("Ordine Ulakasha — Fuorisalone 2026")+"&body="+encodeURIComponent(txt);
+  setTimeout(closeChk,800);
+}
+
+// ── NOTIFICATION ──────────────────────────────────────────────────────
+function showNotif(msg){ var n=el("notif"); n.textContent=msg; n.classList.add("show"); setTimeout(function(){ n.classList.remove("show"); },2800); }
+
+// ── REVEAL ────────────────────────────────────────────────────────────
+function initReveal(){
+  var els=document.querySelectorAll(".page.on .rv");
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("vis"); obs.unobserve(e.target); } });
+  },{threshold:0.1,rootMargin:"0px 0px -40px 0px"});
+  els.forEach(function(r){ r.classList.remove("vis"); obs.observe(r); });
+}
+</script>
+</body>
+</html>
