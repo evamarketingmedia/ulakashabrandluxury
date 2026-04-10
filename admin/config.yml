@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: evamarketingmedia/ulakashabrandluxury
   branch: main
   auth_scope: public_repo
