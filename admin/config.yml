@@ -1,8 +1,6 @@
 backend:
   name: git-gateway
-  repo: evamarketingmedia/ulakashabrandluxury
   branch: main
-  auth_scope: public_repo
 
 media_folder: "immagini"
 public_folder: "/immagini"
