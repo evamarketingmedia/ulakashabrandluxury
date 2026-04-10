@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: evamarketingmedia/ulakasha
+  repo: evamarketingmedia/ulakashabrandluxury
   branch: main
   auth_scope: public_repo
 
