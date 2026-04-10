@@ -1,0 +1,356 @@
+{
+  "prodotti": [
+    {
+      "id": "volto",
+      "nome": { "it": "Volto", "en": "Volto" },
+      "sottotitolo": { "it": "Tunica di Seta · Opera Originale", "en": "Silk Tunic · Original Artwork" },
+      "prezzo": 980,
+      "categoria": "seta",
+      "badge": "Opera d'Arte",
+      "badge_class": "b-art",
+      "taglie": ["XS","S","M","L","XL"],
+      "colori": [
+        {"nome": "Avorio", "hex": "#F5F0E8"},
+        {"nome": "Navy", "hex": "#0D1F3C"},
+        {"nome": "Blu Notte", "hex": "#2C4A7C"}
+      ],
+      "personalizzazione": true,
+      "personalizzazione_label": { "it": "Dedica da stampare all'interno (max 60 caratteri)", "en": "Dedication to print inside (max 60 characters)" },
+      "foto": [
+        "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&q=80",
+        "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80",
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&q=80"
+      ],
+      "materiale": { "it": "100% seta pura stampata in Italia con opera originale di Francesca Càndito. Testo stampato sia all'esterno che all'interno del tessuto. Su ordinazione.", "en": "100% pure silk printed in Italy with original artwork by Francesca Càndito. Made to order." },
+      "storia": { "it": "Il volto che emerge dall'acquerello parla dell'anima che si scopre. Indossa questo capo come atto di riconoscimento: sei tu la sintesi del cosmo.", "en": "The face emerging from the watercolor speaks of the soul discovering itself." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "quore",
+      "nome": { "it": "Quore", "en": "Quore" },
+      "sottotitolo": { "it": "Maglia Cashmere · Ricamo Oro", "en": "Cashmere Sweater · Gold Embroidery" },
+      "prezzo": 740,
+      "categoria": "maglieria",
+      "badge": "Nuovo",
+      "badge_class": "b-new",
+      "taglie": ["S","M","L"],
+      "colori": [
+        {"nome": "Crema", "hex": "#F5F0E8"},
+        {"nome": "Beige", "hex": "#E8DCC8"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80",
+        "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80",
+        "https://images.unsplash.com/photo-1619086303291-0ef7699e4b31?w=800&q=80"
+      ],
+      "materiale": { "it": "Cashmere italiano superfine. Ricamato con il motivo Quore a memoria in filo d'oro da artigiani di Como. Fodera interna in seta stampata.", "en": "Superfine Italian cashmere. Embroidered with Quore a memoria in gold thread." },
+      "storia": { "it": "Il cuore porta la memoria di tutto ciò che abbiamo amato attraverso mille vite.", "en": "The heart carries the memory of all we have loved across a thousand lives." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "stelle",
+      "nome": { "it": "Stelle", "en": "Stelle" },
+      "sottotitolo": { "it": "Cardigan Lana Merino · Costellazione", "en": "Merino Wool Cardigan · Constellation" },
+      "prezzo": 620,
+      "categoria": "maglieria",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L","XL"],
+      "colori": [
+        {"nome": "Navy", "hex": "#0D1F3C"},
+        {"nome": "Grigio Notte", "hex": "#2A2A3A"}
+      ],
+      "personalizzazione": true,
+      "personalizzazione_label": { "it": "Costellazione personalizzata (segno zodiacale o data)", "en": "Custom constellation (zodiac sign or date)" },
+      "foto": [
+        "https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=800&q=80",
+        "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?w=800&q=80",
+        "https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=800&q=80"
+      ],
+      "materiale": { "it": "Lana merino superfine, ricamata con costellazione personalizzata in filo argento. Orlo interno con dedica manoscritta stampata su seta.", "en": "Superfine merino wool, embroidered with custom constellation in silver thread." },
+      "storia": { "it": "Le stelle che ci guidano non sono fuori — sono dentro. Questo cardigan mappa il cielo interiore.", "en": "The stars that guide us are not outside — they are within." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "sole",
+      "nome": { "it": "Sole", "en": "Sole" },
+      "sottotitolo": { "it": "Completo di Seta · Fiori d'Oro", "en": "Silk Set · Golden Flowers" },
+      "prezzo": 860,
+      "categoria": "seta",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Avorio Gold", "hex": "#FAF0D0"},
+        {"nome": "Crema", "hex": "#F5F0E8"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&q=80",
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&q=80",
+        "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta stampata con fiori dorati. Poesia scritta a mano lungo la cucitura interna. Silhouette fluida e ampia.", "en": "Printed silk with golden flowers. Handwritten poetry along the inner seam." },
+      "storia": { "it": "Fiori di sole sparsi sulla seta — un giardino camminante.", "en": "Flowers of sun scattered across silk — a walking garden." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "quore-foulard",
+      "nome": { "it": "Quore · Foulard", "en": "Quore Scarf" },
+      "sottotitolo": { "it": "Foulard di Seta · Edizione Limitata", "en": "Silk Scarf · Limited Edition" },
+      "prezzo": 380,
+      "categoria": "foulard",
+      "badge": "Limitato",
+      "badge_class": "b-lim",
+      "taglie": ["Taglia Unica"],
+      "colori": [
+        {"nome": "Blu Acquerello", "hex": "#4A6FA5"},
+        {"nome": "Gold", "hex": "#C4973A"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80",
+        "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=800&q=80",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80"
+      ],
+      "materiale": { "it": "100% twill di seta stampato, 90x90cm. Orli arrotolati a mano da artigiani italiani.", "en": "100% printed silk twill, 90x90cm. Hand-rolled edges by Italian artisans." },
+      "storia": { "it": "Porta l'AKASHA — la memoria universale delle immagini — intorno alle spalle.", "en": "Carry the AKASHA — the universal memory of images — around your shoulders." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "vento",
+      "nome": { "it": "Vento", "en": "Vento" },
+      "sottotitolo": { "it": "Giacca Kimono di Seta", "en": "Silk Kimono Jacket" },
+      "prezzo": 1200,
+      "categoria": "seta",
+      "badge": "Signature",
+      "badge_class": "b-sig",
+      "taglie": ["S/M","M/L"],
+      "colori": [
+        {"nome": "Avorio", "hex": "#F5F0E8"},
+        {"nome": "Sabbia", "hex": "#E8D5B0"}
+      ],
+      "personalizzazione": true,
+      "personalizzazione_label": { "it": "Monogramma o frase da ricamare sul retro (max 30 caratteri)", "en": "Monogram or phrase to embroider on the back (max 30 characters)" },
+      "foto": [
+        "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&q=80",
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+        "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=800&q=80"
+      ],
+      "materiale": { "it": "Crepe di seta pesante, stampata fronte e retro con opera continua. Fodera interna in seta con testo poetico. Bordi rifiniti a mano.", "en": "Heavy silk crepe, printed front and back. Hand-finished edges." },
+      "storia": { "it": "I venti del cambiamento portano ciò che siamo verso ciò che possiamo diventare.", "en": "The winds of change carry what we are toward what we may become." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "alba",
+      "nome": { "it": "Alba", "en": "Alba" },
+      "sottotitolo": { "it": "Abito Seta · Dipinto a Mano", "en": "Silk Dress · Hand Painted" },
+      "prezzo": 1450,
+      "categoria": "seta",
+      "badge": "Nuovo",
+      "badge_class": "b-new",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Rosa Antico", "hex": "#D4A5A5"},
+        {"nome": "Avorio", "hex": "#F5F0E8"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&q=80",
+        "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&q=80",
+        "https://images.unsplash.com/photo-1496217590455-aa63a8350eea?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta georgette dipinta a mano con pigmenti naturali. Ogni abito è un pezzo unico.", "en": "Hand-painted georgette silk with natural pigments. Each dress is unique." },
+      "storia": { "it": "L'alba è il momento in cui tutto è ancora possibile. Questo abito porta quella luce.", "en": "Dawn is the moment when everything is still possible." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "radice",
+      "nome": { "it": "Radice", "en": "Radice" },
+      "sottotitolo": { "it": "Pantalone Seta · Vita Alta", "en": "Silk Trousers · High Waist" },
+      "prezzo": 580,
+      "categoria": "seta",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L","XL"],
+      "colori": [
+        {"nome": "Nero", "hex": "#1A1A1A"},
+        {"nome": "Navy", "hex": "#0D1F3C"},
+        {"nome": "Crema", "hex": "#F5F0E8"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1594938298603-c8148c4b4057?w=800&q=80",
+        "https://images.unsplash.com/photo-1598554747436-c9293d6a588f?w=800&q=80",
+        "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta fluida a vita alta con poesia stampata all'interno della cintura.", "en": "Fluid high-waist silk with poetry printed inside the waistband." },
+      "storia": { "it": "Le radici non si vedono, ma sostengono tutto. Come questo pantalone sostiene il tuo passo.", "en": "Roots are invisible but support everything." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "luna",
+      "nome": { "it": "Luna", "en": "Luna" },
+      "sottotitolo": { "it": "Top Cashmere · Ricamo Argento", "en": "Cashmere Top · Silver Embroidery" },
+      "prezzo": 480,
+      "categoria": "maglieria",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Grigio Perla", "hex": "#C8C4BC"},
+        {"nome": "Avorio", "hex": "#F5F0E8"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=800&q=80",
+        "https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=800&q=80",
+        "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80"
+      ],
+      "materiale": { "it": "Cashmere superfine con fase lunare ricamata in filo argento. Retro con frase poetica.", "en": "Superfine cashmere with lunar phase embroidered in silver thread." },
+      "storia": { "it": "La luna non chiede il permesso di brillare. Questo top nemmeno.", "en": "The moon does not ask permission to shine." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "memoria",
+      "nome": { "it": "Memoria", "en": "Memoria" },
+      "sottotitolo": { "it": "Cappotto Lana · Opera Integrale", "en": "Wool Coat · Full Artwork" },
+      "prezzo": 1800,
+      "categoria": "maglieria",
+      "badge": "Signature",
+      "badge_class": "b-sig",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Cammello", "hex": "#C19A6B"},
+        {"nome": "Navy", "hex": "#0D1F3C"}
+      ],
+      "personalizzazione": true,
+      "personalizzazione_label": { "it": "Parola o frase da ricamare sul risvolto interno (max 40 caratteri)", "en": "Word or phrase to embroider on the inner lapel (max 40 characters)" },
+      "foto": [
+        "https://images.unsplash.com/photo-1548126032-079a0fb0099d?w=800&q=80",
+        "https://images.unsplash.com/photo-1544923246-77307dd654cb?w=800&q=80",
+        "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800&q=80"
+      ],
+      "materiale": { "it": "Lana doppiafaccia con fodera in seta stampata con opera integrale. Bottoni in madreperla.", "en": "Double-faced wool with silk lining printed with complete artwork. Mother-of-pearl buttons." },
+      "storia": { "it": "La memoria non si porta in testa — si porta addosso.", "en": "Memory is not carried in the mind — it is worn." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "fiamma",
+      "nome": { "it": "Fiamma", "en": "Fiamma" },
+      "sottotitolo": { "it": "Blusa Seta · Ricamo Oro e Rosso", "en": "Silk Blouse · Gold and Red Embroidery" },
+      "prezzo": 660,
+      "categoria": "seta",
+      "badge": "Nuovo",
+      "badge_class": "b-new",
+      "taglie": ["XS","S","M","L","XL"],
+      "colori": [
+        {"nome": "Avorio", "hex": "#F5F0E8"},
+        {"nome": "Rosso Antico", "hex": "#8B2020"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=800&q=80",
+        "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=800&q=80",
+        "https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta leggera con ricamo fiamma in filo oro e rosso. Maniche ampie, chiusura a bottoni dorati.", "en": "Light silk with flame embroidery in gold and red thread. Wide sleeves." },
+      "storia": { "it": "La fiamma non brucia — illumina. Come questo capo illumina chi lo indossa.", "en": "The flame does not burn — it illuminates." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "cosmo",
+      "nome": { "it": "Cosmo", "en": "Cosmo" },
+      "sottotitolo": { "it": "Gonna Midi Seta · Stampa Cosmica", "en": "Midi Silk Skirt · Cosmic Print" },
+      "prezzo": 520,
+      "categoria": "seta",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Navy Cosmo", "hex": "#0D1F3C"},
+        {"nome": "Blu Notte", "hex": "#1A2A4A"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1583744946564-b52ac1c389c8?w=800&q=80",
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800&q=80",
+        "https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta fluida con stampa cosmica ispirata alle opere di Francesca Càndito. Fodera in raso.", "en": "Fluid silk with cosmic print inspired by Francesca Càndito's artworks." },
+      "storia": { "it": "Il cosmo non è lassù — è qui, in ogni fibra di questo tessuto.", "en": "The cosmos is not up there — it is here, in every fiber of this fabric." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "silenzio",
+      "nome": { "it": "Silenzio", "en": "Silenzio" },
+      "sottotitolo": { "it": "Sciarpa Cashmere · Opera Tessile", "en": "Cashmere Scarf · Textile Artwork" },
+      "prezzo": 290,
+      "categoria": "foulard",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["Taglia Unica"],
+      "colori": [
+        {"nome": "Grigio Fumo", "hex": "#8A8A8A"},
+        {"nome": "Beige", "hex": "#E8D5B0"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80",
+        "https://images.unsplash.com/photo-1520367445093-50dc08a59d9d?w=800&q=80",
+        "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=800&q=80"
+      ],
+      "materiale": { "it": "Cashmere puro con bordo in seta. Disegno geometrico ispirato alla meditazione.", "en": "Pure cashmere with silk border. Geometric design inspired by meditation." },
+      "storia": { "it": "Nel silenzio si sentono le cose che contano davvero.", "en": "In silence you hear the things that truly matter." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "terra",
+      "nome": { "it": "Terra", "en": "Terra" },
+      "sottotitolo": { "it": "Gonna Lunga Lino · Ricamo Botanico", "en": "Long Linen Skirt · Botanical Embroidery" },
+      "prezzo": 440,
+      "categoria": "maglieria",
+      "badge": "",
+      "badge_class": "",
+      "taglie": ["XS","S","M","L","XL"],
+      "colori": [
+        {"nome": "Sabbia", "hex": "#C4A882"},
+        {"nome": "Verde Salvia", "hex": "#7A8C6E"}
+      ],
+      "personalizzazione": false,
+      "foto": [
+        "https://images.unsplash.com/photo-1594938298603-c8148c4b4057?w=800&q=80",
+        "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=800&q=80",
+        "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=800&q=80"
+      ],
+      "materiale": { "it": "Lino naturale non trattato con ricamo botanico a mano. Fodera in seta color crema.", "en": "Untreated natural linen with hand botanical embroidery. Cream silk lining." },
+      "storia": { "it": "La terra non ha fretta. Questo capo nemmeno.", "en": "The earth is never in a hurry. Neither is this garment." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    },
+    {
+      "id": "infinito",
+      "nome": { "it": "Infinito", "en": "Infinito" },
+      "sottotitolo": { "it": "Abito Lungo Seta · Edizione Speciale", "en": "Long Silk Dress · Special Edition" },
+      "prezzo": 2200,
+      "categoria": "seta",
+      "badge": "Limitato",
+      "badge_class": "b-lim",
+      "taglie": ["XS","S","M","L"],
+      "colori": [
+        {"nome": "Avorio Antico", "hex": "#EDE0C8"},
+        {"nome": "Nero", "hex": "#1A1A1A"}
+      ],
+      "personalizzazione": true,
+      "personalizzazione_label": { "it": "Dedica o poesia da stampare nella fodera (max 120 caratteri)", "en": "Dedication or poem to print in the lining (max 120 characters)" },
+      "foto": [
+        "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800&q=80",
+        "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800&q=80",
+        "https://images.unsplash.com/photo-1485231183945-fffde7cc051e?w=800&q=80"
+      ],
+      "materiale": { "it": "Seta pesante stampata con opera integrale fronte e retro. Strascico rimovibile. Ogni abito numerato e firmato dall'artista.", "en": "Heavy silk printed with complete artwork front and back. Removable train. Each dress numbered and signed by the artist." },
+      "storia": { "it": "L'infinito non è un posto dove andare — è un modo di essere.", "en": "Infinity is not a place to go — it is a way of being." },
+      "stripe_link": "https://buy.stripe.com/test_3cI28raHZ56ubNn3q7gA801"
+    }
+  ]
+}
